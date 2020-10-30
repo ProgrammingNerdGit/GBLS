@@ -139,6 +139,10 @@ class vectorN(_vector):
 	
 
 
-if __name__ == "__main__":
-    vec = vector2(2,2)
-    print(vec * 0.5)
+def magnitude(a,b):
+    if(type(a) == type(vector2(0,0))): a = vectorN(a.x,a.y)
+    if(type(b) == type(vector2(0,0))): b = vectorN(b.x,b.y)
+    if(type(a) == type(vector3(0,0,0))): a = vectorN(a.x,a.y,a.z)
+    if(type(b) == type(vector3(0,0,0))): b = vectorN(b.x,b.y,b.z)
+    
+    return sum(abs(a.axis[i]-b.axis[i])**2 for i in range(len(a.axis)))**0.5
