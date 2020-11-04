@@ -58,7 +58,7 @@ class vector2(_vector):
 	def __str__(self):
 		return f"({self.x},{self.y})"
 	def __repr__(self):
-		return (self.x,self.y)
+		return f"({self.x},{self.y})"
 
 
 class vector3(_vector):
@@ -87,7 +87,7 @@ class vector3(_vector):
 	def __str__(self):
 		return f"({self.x},{self.y},{self.z})"
 	def __repr__(self):
-		return (self.x,self.y,self.z)
+		return f"({self.x},{self.y},{self.z})"
 
 class vectorN(_vector):
 	def __init__(self,*args,**kwargs):
@@ -135,10 +135,15 @@ class vectorN(_vector):
 	def __str__(self):
 		return str(tuple(self.axis))
 	def __repr__(self):
-		return tuple(self.axis)
+		return str(tuple(self.axis))
 	
-
-
+def lerp2(a,b,numPoints):
+	m = (a.y-b.y)/(a.x-b.x)   
+	points = []
+	Mstart = abs(a.x-b.x)/numPoints
+	for i in range(numPoints+1):
+		points.append(vector2(Mstart*i,m*(Mstart*i)))
+	return points
 def magnitude(a,b):
     if(type(a) == type(vector2(0,0))): a = vectorN(a.x,a.y)
     if(type(b) == type(vector2(0,0))): b = vectorN(b.x,b.y)
