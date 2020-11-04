@@ -1,4 +1,4 @@
-# GBLD V1.0
+# GBLS V1.0
 
 ## Wiki
 [Wiki](https://github.com/ProgrammingNerdGit/GBLS/wiki)
