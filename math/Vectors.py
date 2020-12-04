@@ -1,3 +1,5 @@
+import math
+import numpy as np
 class _vector:
 	def checkAndChange(self,n,b,operation):
 		if(type(n) == type(vector2(0,0))):
@@ -136,13 +138,14 @@ class vectorN(_vector):
 		return str(tuple(self.axis))
 	def __repr__(self):
 		return str(tuple(self.axis))
-	
+#y=mx+b
 def lerp2(a,b,numPoints):
-	m = (a.y-b.y)/(a.x-b.x)   
+	m = (b.y-a.y)/(b.x-a.x)
+	B = a.y-(m*a.x)
 	points = []
-	Mstart = abs(a.x-b.x)/numPoints
-	for i in range(numPoints+1):
-		points.append(vector2(Mstart*i,m*(Mstart*i)))
+	for i in np.linspace(a.x,b.x,numPoints):
+		points.append(vector2(i,m*i+B))
+
 	return points
 def magnitude(a,b):
     if(type(a) == type(vector2(0,0))): a = vectorN(a.x,a.y)
