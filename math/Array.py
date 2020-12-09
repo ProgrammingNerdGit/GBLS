@@ -1,6 +1,8 @@
 class Array2D:
     def __init__(self,lx,ly,default = None):
         self.data = []
+        self.width = lx
+        self.height = ly
         for _ in range(lx):
             acm = []
             for __ in range(ly):
@@ -26,18 +28,5 @@ class Array2D:
                 v = self.__getitem__((x,y))
                 if(v == regex):
                     self.__setitem__((x,y),val)
-     
-                
-                
-                
-            
-if __name__ == "__main__":
-    test = Array2D(10,10,0)
-    test[2,4] = 4
-    test2 = Array2D(5,5)
-    print(test[2,4])
-    test2 = test
-    print(test2 == test)
-    print(test2.data == test.data)
     
         
